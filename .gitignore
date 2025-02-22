@@ -169,3 +169,42 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# داده‌های حجیم
+data/
+datasets/
+*.csv
+*.tsv
+*.json
+*.parquet
+
+# مدل‌های ذخیره‌شده
+models/
+*.pkl
+*.h5
+*.pt
+*.joblib
+
+# فایل‌های لاگ و خروجی‌ها
+logs/
+*.log
+
+# فایل‌های پایتون بی‌فایده
+__pycache__/
+*.pyc
+*.pyo
+
+# تنظیمات محیط مجازی
+venv/
+.env
+
+# فایل‌های Jupyter Notebook خروجی
+.ipynb_checkpoints/
+
+# Docker & Kubernetes
+docker-compose.yml
+*.dockerfile
+
+# IDE مخصوص
+.vscode/
+.idea/
