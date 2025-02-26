@@ -1,0 +1,32 @@
+name: DVC Data Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  dvc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+
+      - name: Install DVC and Dependencies
+        run: pip install dvc dvc-s3
+
+      - name: Configure DVC Remote
+        run: |
+          dvc remote modify minio_remote endpointurl http://localhost:9000
+          dvc remote modify minio_remote access_key_id admin
+          dvc remote modify minio_remote secret_access_key admin123
+          dvc remote modify minio_remote use_ssl false
+
+      - name: Pull Latest Data
+        run: dvc pull
+
