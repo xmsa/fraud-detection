@@ -171,8 +171,7 @@ cython_debug/
 .pypirc
 
 # داده‌های حجیم
-data/
-datasets/
+
 *.csv
 *.tsv
 *.json
